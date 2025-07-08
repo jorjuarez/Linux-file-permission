@@ -44,6 +44,13 @@ The first task was to modify the permissions for the `.project_x.txt` file by re
 ```bash
 sudo chmod u-w,g-w,g+r .project_x.txt
 ```
+**Breaking Down the Command:**
+This command tells `chmod` to perform three actions at once:
+
+* **`u-w`**: For the **u**ser (the file's owner), it **r**emoves (`-`) the **w**rite permission.
+* **`g-w`**: For the **g**roup, it **r**emoves (`-`) the **w**rite permission.
+* **`g+r`**: For the **g**roup, it **a**dds (`+`) the **r**ead permission.
+
 #### Task 2: Restrict Directory Access
 The final task was to make the `drafts` directory accessible only to the owner. This was achieved by removing the execute permission for the group, which prevents them from entering the directory.
 
@@ -51,6 +58,11 @@ The final task was to make the `drafts` directory accessible only to the owner. 
 ```bash
 sudo chmod g-x drafts
 ```
+
+**Breaking Down the Command:**
+This command tells `chmod` to perform one action:
+
+* **`g-x`**: For the **g**roup, it **r**emoves (`-`) the e**x**ecute permission.
 
 After running this command, the permissions for the `drafts` directory were updated to `drwx------`, confirming that only the owner has access.
 
